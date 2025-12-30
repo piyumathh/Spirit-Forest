@@ -1,0 +1,66 @@
+[gd_scene load_steps=11 format=3 uid="uid://bqdhcs4x8rg2g"]
+
+[ext_resource type="Script" uid="uid://bb0or74ehwfc8" path="res://scripts/stage.gd" id="1_iywne"]
+[ext_resource type="PackedScene" uid="uid://blckdha4h3vy5" path="res://scenes/player.tscn" id="1_uwrxv"]
+[ext_resource type="Resource" uid="uid://bi5lsxqv7w6vw" path="res://resources/Stage1.tres" id="2_p57ef"]
+[ext_resource type="PackedScene" uid="uid://dr5ml1ukoxyuw" path="res://scenes/ground.tscn" id="2_yqjtg"]
+[ext_resource type="Script" uid="uid://r3bkjg24oe1u" path="res://scripts/stageLayout.gd" id="3_gee14"]
+[ext_resource type="Script" uid="uid://cnfp1mvjiys4b" path="res://scripts/layoutManager.gd" id="3_lbhrr"]
+[ext_resource type="Script" uid="uid://c5j605gcsog3a" path="res://scripts/propSpawner.gd" id="6_p57ef"]
+[ext_resource type="Resource" uid="uid://dasly63lpda2i" path="res://resources/Stage2.tres" id="7_0tnpc"]
+[ext_resource type="Script" uid="uid://dcsjt6grex22p" path="res://scripts/stageTrigger.gd" id="9_0tnpc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gee14"]
+size = Vector2(19.979404, 20)
+
+[node name="Game" type="Node"]
+
+[node name="Stage" type="Node2D" parent="."]
+script = ExtResource("1_iywne")
+
+[node name="ground" parent="Stage" instance=ExtResource("2_yqjtg")]
+position = Vector2(-778, 86)
+scale = Vector2(4, 4)
+
+[node name="camera" type="Camera2D" parent="Stage"]
+position = Vector2(45, -307)
+zoom = Vector2(0.75, 0.75)
+
+[node name="LayoutManager" type="Node" parent="Stage"]
+script = ExtResource("3_lbhrr")
+layouts = Array[ExtResource("3_gee14")]([ExtResource("2_p57ef"), ExtResource("7_0tnpc")])
+
+[node name="PropSpawner" type="Node2D" parent="Stage/LayoutManager"]
+script = ExtResource("6_p57ef")
+
+[node name="player" parent="Stage" groups=["player"] instance=ExtResource("1_uwrxv")]
+position = Vector2(-16, -16)
+
+[node name="ExitRight" type="Area2D" parent="Stage"]
+position = Vector2(834, -76)
+scale = Vector2(-11.448017, 1.647584)
+script = ExtResource("9_0tnpc")
+eventName = "right"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stage/ExitRight"]
+position = Vector2(-1.3976223, -140.2053)
+scale = Vector2(-0.2132478, -26.409874)
+shape = SubResource("RectangleShape2D_gee14")
+
+[node name="ExitLeft" type="Area2D" parent="Stage"]
+position = Vector2(-780, -78)
+scale = Vector2(-11.448017, 1.647584)
+script = ExtResource("9_0tnpc")
+eventName = "left"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stage/ExitLeft"]
+position = Vector2(-1.3976223, -140.2053)
+scale = Vector2(-0.2132478, -26.409874)
+shape = SubResource("RectangleShape2D_gee14")
+
+[connection signal="body_entered" from="Stage/ExitRight" to="Stage" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Stage/ExitRight" to="Stage/ExitRight" method="_on_body_entered"]
+[connection signal="triggered" from="Stage/ExitRight" to="Stage" method="onExitTriggered"]
+[connection signal="body_entered" from="Stage/ExitLeft" to="Stage" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Stage/ExitLeft" to="Stage/ExitLeft" method="_on_body_entered"]
+[connection signal="triggered" from="Stage/ExitLeft" to="Stage" method="onExitTriggered"]

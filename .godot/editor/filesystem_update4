@@ -1,0 +1,6 @@
+res://scenes/game.tscn
+res://resources/Stage1.tres
+res://resources/Stage2.tres
+res://scripts/stage.gd
+res://scripts/stageTrigger.gd
+res://scripts/layoutManager.gd

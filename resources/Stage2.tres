@@ -1,0 +1,46 @@
+[gd_resource type="Resource" script_class="StageLayout" load_steps=8 format=3 uid="uid://dasly63lpda2i"]
+
+[ext_resource type="Script" uid="uid://cmv7tdvq0hjbu" path="res://scripts/propPlacement.gd" id="1_xjiu3"]
+[ext_resource type="PackedScene" uid="uid://b3wnibaf85x40" path="res://scenes/cylinderProp.tscn" id="2_78xly"]
+[ext_resource type="Script" uid="uid://r3bkjg24oe1u" path="res://scripts/stageLayout.gd" id="3_niqw8"]
+
+[sub_resource type="Resource" id="Resource_ljcsb"]
+script = ExtResource("1_xjiu3")
+scene = ExtResource("2_78xly")
+position = Vector2(375, -200)
+rotation = 1.0
+scale = Vector2(1, 5)
+depth = -1
+metadata/_custom_type_script = "uid://cmv7tdvq0hjbu"
+
+[sub_resource type="Resource" id="Resource_xcd2q"]
+script = ExtResource("1_xjiu3")
+scene = ExtResource("2_78xly")
+position = Vector2(250, -200)
+rotation = 0.5
+scale = Vector2(1, 5)
+depth = 1
+metadata/_custom_type_script = "uid://cmv7tdvq0hjbu"
+
+[sub_resource type="Resource" id="Resource_6s2et"]
+script = ExtResource("1_xjiu3")
+scene = ExtResource("2_78xly")
+position = Vector2(-450, -200)
+rotation = 1.0
+scale = Vector2(1, 5)
+depth = -1
+metadata/_custom_type_script = "uid://cmv7tdvq0hjbu"
+
+[sub_resource type="Resource" id="Resource_fnak3"]
+script = ExtResource("1_xjiu3")
+scene = ExtResource("2_78xly")
+position = Vector2(-275, -200)
+rotation = 0.5
+scale = Vector2(1, 5)
+depth = 1
+metadata/_custom_type_script = "uid://cmv7tdvq0hjbu"
+
+[resource]
+script = ExtResource("3_niqw8")
+placements = Array[ExtResource("1_xjiu3")]([SubResource("Resource_ljcsb"), SubResource("Resource_xcd2q"), SubResource("Resource_6s2et"), SubResource("Resource_fnak3")])
+metadata/_custom_type_script = "uid://r3bkjg24oe1u"

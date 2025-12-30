@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3wnibaf85x40"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_cnu8t"]
+
+[node name="root" type="Node2D"]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+scale = Vector2(66.560005, 46.52)
+mesh = SubResource("CylinderMesh_cnu8t")
