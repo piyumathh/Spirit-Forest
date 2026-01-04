@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bqdhcs4x8rg2g"]
+[gd_scene load_steps=12 format=3 uid="uid://bqdhcs4x8rg2g"]
 
 [ext_resource type="Script" uid="uid://bb0or74ehwfc8" path="res://scripts/stage.gd" id="1_iywne"]
 [ext_resource type="PackedScene" uid="uid://blckdha4h3vy5" path="res://scenes/player.tscn" id="1_uwrxv"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://c5j605gcsog3a" path="res://scripts/propSpawner.gd" id="6_p57ef"]
 [ext_resource type="Resource" uid="uid://dasly63lpda2i" path="res://resources/Stage2.tres" id="7_0tnpc"]
 [ext_resource type="Script" uid="uid://dcsjt6grex22p" path="res://scripts/stageTrigger.gd" id="9_0tnpc"]
+[ext_resource type="Texture2D" uid="uid://dqrxxc0wuxyfr" path="res://assets/testBackground1.tres" id="10_vtaks"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gee14"]
 size = Vector2(19.979404, 20)
@@ -57,6 +58,12 @@ eventName = "left"
 position = Vector2(-1.3976223, -140.2053)
 scale = Vector2(-0.2132478, -26.409874)
 shape = SubResource("RectangleShape2D_gee14")
+
+[node name="TestBackground1" type="Sprite2D" parent="Stage"]
+z_index = -2
+position = Vector2(59.000008, -596)
+scale = Vector2(0.847768, 1.1072178)
+texture = ExtResource("10_vtaks")
 
 [connection signal="body_entered" from="Stage/ExitRight" to="Stage" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Stage/ExitRight" to="Stage/ExitRight" method="_on_body_entered"]

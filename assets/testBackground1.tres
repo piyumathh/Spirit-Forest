@@ -1,0 +1,6 @@
+[gd_resource type="CanvasTexture" load_steps=2 format=3 uid="uid://dqrxxc0wuxyfr"]
+
+[ext_resource type="Texture2D" uid="uid://bv0upddk6oh55" path="res://assets/nightForestTest.jpg" id="1_rfd6j"]
+
+[resource]
+diffuse_texture = ExtResource("1_rfd6j")

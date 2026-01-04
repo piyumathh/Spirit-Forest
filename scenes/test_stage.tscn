@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcaeixsxn8xfu"]
+
+[ext_resource type="Script" uid="uid://bb0or74ehwfc8" path="res://scripts/stage.gd" id="1_jog5b"]
+[ext_resource type="PackedScene" uid="uid://dr5ml1ukoxyuw" path="res://scenes/ground.tscn" id="2_s7ml3"]
+[ext_resource type="PackedScene" uid="uid://blckdha4h3vy5" path="res://scenes/player.tscn" id="3_s7ml3"]
+
+[node name="testStage" type="Node2D"]
+script = ExtResource("1_jog5b")
+
+[node name="ground" parent="." instance=ExtResource("2_s7ml3")]
+position = Vector2(-778, 86)
+scale = Vector2(4, 4)
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("3_s7ml3")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-83, -262)
